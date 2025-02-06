@@ -10,7 +10,7 @@ async fn main() {
     request_new_screen_size(screen_width as f32, screen_height as f32 + 28.0);
     next_frame().await;
 
-    let mut tank = glass_tank::Tank::new(screen_width, screen_height, 5);
+    let mut tank = glass_tank::Tank::new(screen_width, screen_height, 0);
 
     loop {
         clear_background(BLACK);
