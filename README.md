@@ -1,6 +1,8 @@
 # Falling Sand
 This is a rust project influenced by a youtube video thumbnail that I could not avoid
 
+![example](docs/readme.png)
+
 ## Dependencies
 - MacroQuad
 
