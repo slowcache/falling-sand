@@ -138,9 +138,27 @@ impl Tank {
     }
 
     pub fn drop_sand_in_column(&mut self, column: usize, grain: char) {
+        self.drop_sand(0, column, grain, 1);
+    }
+
+    pub fn drop_sand(&mut self, row: usize, column: usize, grain: char, area: usize) {
         assert!(column < self.grains[0].len(), "Cannot drop sand past a column larger than the width of the tank!");
-        assert!(self.grains[0][column] == '-', "Overwriting Existing Grain While Dropping Sand!");
-        self.grains[0][column] = grain;
+
+        for i in 0..area {
+            if row + i >= self.grains.len() {
+                break;
+            }
+
+            for j in 0..area {
+                if column + j >= self.grains[i].len() {
+                    break;
+                }
+                    
+                if self.grains[row + i][column + j] == '-' {
+                    self.grains[row + i][column + j] = grain;
+                }
+            }
+        }
     }
 
     pub fn to_string(&self) -> String {
